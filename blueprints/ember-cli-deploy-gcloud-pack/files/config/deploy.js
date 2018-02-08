@@ -2,6 +2,7 @@
 'use strict';
 
 const gcloudProjectId = '** YOUR PROJECT ID **';
+const productionBucket = '** YOUR BUCKET **';
 
 module.exports = function(deployTarget) {
   let ENV = {
@@ -29,8 +30,6 @@ module.exports = function(deployTarget) {
   if (deployTarget === 'production') {
     ENV.build.environment = 'production';
     // configure other plugins for production deploy target here
-
-    const productionBucket = '** YOUR BUCKET HERE **';
 
     ENV['gcloud-storage'].bucket = productionBucket;
     ENV['gcs-index'].bucket = productionBucket;
